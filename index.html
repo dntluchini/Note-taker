@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Note task</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="estilo.css">
+    <link rel="stylesheet" href="normalize.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,300;1,100&family=Raleway:wght@100&display=swap"
+        rel="stylesheet">
+
+</head>
+
+<body>
+    <div class=main-container>
+        <div class=note-cotainer>
+            <div class="title">
+                <h1 id=notesH1>NOTES <img src=notes-svgrepo-com.svg></h1>
+            </div>
+
+
+            <div class="inputNote">
+
+                <input id=noteInput required type=text placeholder="Enter your note!">
+                <button class=add> Add </button>
+                <div class=buttonDelete>
+                    <button class=deleteNote>Delete!</button>
+                </div>
+            </div>
+
+            <div class=note>
+                <h2>Note</h2>
+                <ul id="noteList">
+                    <li class=checked>Nota 1</li>
+                    <li>note2</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <script src=script.js></script>
+
+</body>
+
+</html>

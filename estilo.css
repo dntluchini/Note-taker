@@ -1,0 +1,136 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient( to bottom, #f4f786 , #a42354);
+    
+    
+    
+}
+
+.main-container {
+    width: 100%;
+    min-height: 100vh;
+     padding: 10px;
+     
+}
+.note-cotainer {
+    background:linear-gradient(to bottom,rgb(221, 154, 91) ,#ca6154 ) ;
+    border: none;
+    border-radius: 40px;
+    max-width: 570px;
+    margin : 100px auto 20px;
+    padding: 40px 30px 70px;
+    width: 100%;
+  
+   
+
+    
+}
+.note-cotainer #notesH1{
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    
+ 
+}
+.title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.title img {
+    width: 30px;
+    height: 30px;
+    flex: 1;
+    margin-left: 10px;
+}
+
+.inputNote {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: none;
+    outline: none;
+    border-radius: 40px;
+    background-color: #62397a;
+    padding-left: 10px;
+    margin-bottom: 25px;
+    width: 60%;
+}
+
+
+.inputNote #noteInput {
+    padding: 10px ;
+    flex: 1;
+    outline: none;
+    border: none;
+    border-radius: 40px;
+    background: transparent;
+    color: #fff;
+}
+
+.inputNote .add {
+    outline: none;
+    border: none;
+    border-radius: 40px;
+    font-size: 16px;
+    padding: 20px 45px;
+    cursor: pointer;
+  
+}
+
+.note ul li{
+    list-style: none;
+    padding: 15px 9px 15px 50px;
+    user-select: none;
+    cursor: pointer;
+    position: relative;
+}
+.note ul li::before{
+    content: "";
+    position: absolute;
+    height: 28px;
+    width: 28px;
+    border-radius: 50%;
+    background-color: #62397a;
+    background-size: cover;
+    background-position: center;
+    top: 8px;
+    left: 8px;
+}
+
+ .checked {
+    color :#999;
+    text-decoration: line-through;
+}
+
+.note ul li::before {
+
+    background-size: cover;
+    background-position: center;
+}
+
+.buttonDelete {
+    display: flex;
+    justify-content: right;
+    align-items: center;
+}
+
+.deleteNote {
+    padding: 20px 30px;
+    border-radius: 30px;
+    outline: none;
+    border: none;
+    margin-left: 55px;
+    
+}
+
+
+.note h2{
+    margin-bottom: 15px;
+}
+
+.date {
+    margin: 10px;
+}
