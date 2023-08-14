@@ -37,21 +37,32 @@ const createNoteElement = (note) =>{
     const dateElement = document.createElement('p');
     dateElement.classList.add('date');
     dateElement.textContent = note.date;
+    li.addEventListener('click',() =>{
+        li.classList.toggle ('checked');
+})
     li.innerHTML = `${note.note} ${dateElement.outerHTML}`;
+    
+  
+      
     return li;
 
 } 
-   
+
+
 const loadNotes = () =>{
         const notesStored = localStorage.getItem('entries');
         if (notesStored) {
                 const entries = JSON.parse(notesStored);
                entries.forEach(entry => {
                 const li = document.createElement('li');
+                
                 const dateElement = document.createElement('p');
                 dateElement.classList.add('date');
                 dateElement.textContent = entry.date;
                 li.innerHTML = `${entry.note} ${dateElement.outerHTML}`;
+                li.addEventListener('click',() =>{
+                        li.classList.toggle ('checked');
+                })
                 list.appendChild(li);
                });
         }
@@ -77,4 +88,15 @@ const addNote = () =>{
 btnAddNote.addEventListener('click', (addNote)); 
     
 
- 
+
+btnDelete.addEventListener('click', () => {
+        deleteNote(list);
+    });
+    
+    const deleteNote = (ul) => {
+        const checkedItems = ul.querySelectorAll('.checked');
+        checkedItems.forEach(li => {
+            ul.removeChild(li);
+        });
+    };
+    
