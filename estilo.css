@@ -40,8 +40,8 @@ body {
 }
 
 .title img {
-    width: 30px;
-    height: 30px;
+    width: 45px;
+    height: 45px;
     flex: 1;
     margin-left: 10px;
 }
@@ -136,5 +136,6 @@ body {
 }
 
 .date {
-    margin: 10px;
+    margin: 15px;
 }
+
