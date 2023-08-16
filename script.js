@@ -1,12 +1,13 @@
 
 
-const btnAddNote = document.querySelector('.add');
 
 const inputDisplayNote = document.getElementById ('noteInput');
 
 const list = document.getElementById ('noteList')
 
-const btnDelete = document.querySelector('.deleteNote');
+const btnDeleteNote = document.querySelector('.deleteNote');
+
+const btnAddNote = document.querySelector('.add');
 
 
 let inputDate = () =>{
@@ -15,88 +16,54 @@ let inputDate = () =>{
         return   actualDate.toLocaleDateString(undefined,options);
      }
 
-const actualDateNote = inputDate();
 
 
-const saveDateNoteToLs   = (note) => {
-        const dateAndNote = {
-        date: inputDate(),
-        note: inputDisplayNote.value
-  }
-  const storedEntries = localStorage.getItem('entries');
-  const entries = storedEntries ? JSON.parse(storedEntries) : [];
-  entries.push(dateAndNote);
-  localStorage.setItem('entries', JSON.stringify(entries));
-}
 
-
-    
-
-const createNoteElement = (note) =>{
-    const li = document.createElement('li');
-    const dateElement = document.createElement('p');
-    dateElement.classList.add('date');
-    dateElement.textContent = note.date;
-    li.addEventListener('click',() =>{
-        li.classList.toggle ('checked');
-})
-    li.innerHTML = `${note.note} ${dateElement.outerHTML}`;
-    
-  
-      
-    return li;
-
-} 
-
-
-const loadNotes = () =>{
-        const notesStored = localStorage.getItem('entries');
-        if (notesStored) {
-                const entries = JSON.parse(notesStored);
-               entries.forEach(entry => {
-                const li = document.createElement('li');
-                
-                const dateElement = document.createElement('p');
-                dateElement.classList.add('date');
-                dateElement.textContent = entry.date;
-                li.innerHTML = `${entry.note} ${dateElement.outerHTML}`;
-                li.addEventListener('click',() =>{
-                        li.classList.toggle ('checked');
-                })
-                list.appendChild(li);
-               });
+const saveData = (note) =>{
+        const dateNote = {
+            date : inputDate(),
+            note : inputDisplayNote.value
         }
+        const notesSorted = localStorage.getItem('notes');
+        const notes = notesSorted ? JSON.parse(notesSorted) : []
+        notes.push(dateNote);
+        localStorage.setItem('notes',JSON.stringify(notes));
+    }
+ 
+    
+
+const createNote = (note) =>{
+        const li = document.createElement ('li');
+        const date = document.createElement ('p');
+        date.classList.add ('date');
+        date.innerHTML = note.date;
+        li.addEventListener('click',function(e) {
+            if (e.target.tagName === 'LI') {
+                e.target.classList.toggle ('checked');
+            }
+        })
+        li.innerHTML = `${note.note} ${date.outerHTML}`
+        return li;
+}    
+
+const addNote = () =>{
+     if (inputDisplayNote.value === '') {
+        alert ('Fill the note!!');
+     } else {
+        saveData (inputDisplayNote.value);
+        const dateNote = createNote({
+            date : inputDate(),
+            note : inputDisplayNote.value
+        })
+        list.appendChild(dateNote);
+        inputDisplayNote.value = '';  
+     }
 }
 
-document.addEventListener('DOMContentLoaded',(loadNotes));
-
-    
-const addNote = () =>{
-        if (inputDisplayNote.value === '') {
-                alert('You need to fill the note!');
-            } else {
-                saveDateNoteToLs (inputDisplayNote.value);
-                 const dateAndNote = createNoteElement({
-                        date: inputDate(),
-                        note: inputDisplayNote.value
-                  });
-                  list.appendChild(dateAndNote);
-                  inputDisplayNote.value = ''
-                };
-             }
-
-btnAddNote.addEventListener('click', (addNote)); 
-    
 
 
-btnDelete.addEventListener('click', () => {
-        deleteNote(list);
-    });
-    
-    const deleteNote = (ul) => {
-        const checkedItems = ul.querySelectorAll('.checked');
-        checkedItems.forEach(li => {
-            ul.removeChild(li);
-        });
-    };
-    
+
+
+
+btnAddNote.addEventListener('click',addNote);
+
