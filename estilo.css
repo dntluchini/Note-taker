@@ -20,10 +20,11 @@ body {
     margin : 100px auto 20px;
     padding: 40px 30px 70px;
     width: 100%;
-  
-   
+     
+}
 
-    
+#noteList {
+    margin-top: 50px;
 }
 .note-cotainer #notesH1{
     display: flex;
@@ -68,6 +69,7 @@ body {
     border-radius: 40px;
     background: transparent;
     color: #fff;
+    
 }
 
 .inputNote .add {
@@ -77,28 +79,30 @@ body {
     font-size: 16px;
     padding: 20px 45px;
     cursor: pointer;
+    width: 100%;
   
 }
 
 .note ul li{
     list-style: none;
-    padding: 15px 9px 15px 50px;
     user-select: none;
-    cursor: pointer;
+   
     position: relative;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    margin-bottom: 45px;
 }
-.note ul li::before{
-    content: "";
-    position: absolute;
-    height: 28px;
-    width: 28px;
-    border-radius: 50%;
-    background-color: #62397a;
-    background-size: cover;
-    background-position: center;
-    top: 8px;
-    left: 8px;
+
+.note-content {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 300px;
+  
+    
 }
+
 
  .checked {
     color :#c01a1a;
@@ -107,35 +111,37 @@ body {
   
 }
 
-.note ul li::before {
 
-    background-size: cover;
-    background-position: center;
-}
 
-.buttonDelete {
-    display: flex;
-    justify-content: right;
-    align-items: center;
-   
-}
 
 .deleteNote {
-    padding: 20px 30px;
-    border-radius: 30px;
-    outline: none;
-    border: none;
-    margin-left: 55px;
-    cursor: pointer;
-    
+   border-radius: 30px;
+   outline: none;
+   border: none;
+   cursor: pointer;
+   position: absolute;
+   margin: 0px 0 10px 400px;
+   padding: 17px 27px;
+   justify-content: center;
+   bottom: -23px;
+   transition: background-color 0.3s ease;
+   font-weight: bold;
+   -webkit-transition: background-color 0.3s ease;
+   -moz-transition: background-color 0.3s ease;
+   -ms-transition: background-color 0.3s ease;
+   -o-transition: background-color 0.3s ease;
 }
 
 
-.note h2{
-    margin-bottom: 15px;
+
+
+
+li p {
+    margin-right: 10px;
 }
 
-.date {
-    margin: 15px;
+.deleteNote:hover {
+  
+   background-color: #62397a;
+   
 }
-
